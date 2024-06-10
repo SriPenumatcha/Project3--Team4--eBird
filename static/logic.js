@@ -15,7 +15,7 @@ function createMap(birdSightings){
     
     let map = L.map("map-id",{
         center: [-23.69, 133.88],
-        zoom: 5,
+        zoom: 3,
         layers: [streetmap, birdSightings]
     });
 
@@ -26,19 +26,32 @@ function createMap(birdSightings){
 }
 
 function createMarkers(response){
-    let birds = response.comName;
     let birdMarkers = [];
     for (let i = 0; i < response.length; i++){
-        let bird = birds[i];
-        let birdMarker = L.marker([response.lat, response.lng])
+        let bird = response[i];
+        let birdMarker = L.marker([bird.lat, bird.lng])
             .bindPopup(" ");
 
         birdMarkers.push(birdMarker);
+        
     }
 
     createMap(L.layerGroup(birdMarkers));
 
 }
 
-d3.json("https://api.ebird.org/v2/data/obs/AU/recent?back=30").then(createMarkers);
+// d3.json("https://api.ebird.org/v2/data/obs/AU/recent?back=30").header("X-eBirdApiToken", "m2l3d329lrja").
 
+const axiosInstance = axios.create({
+    baseURL: 'https://api.ebird.org/v2',
+  });
+
+  axiosInstance.defaults.headers.common['X-eBirdApiToken'] = `m2l3d329lrja`;
+
+  axiosInstance.get('/data/obs/AU/recent?back=30')
+  .then(response => {
+    console.log(response.data);
+    createMarkers(response.data)
+})
+
+  
