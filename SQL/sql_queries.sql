@@ -1,3 +1,4 @@
+--Have a look at the tables:
 select * from Species;
 select * from Locations;
 select * from Observations;
@@ -23,6 +24,8 @@ s.speciesCode = o.speciesCode
 where s.comname = 'Hudsonian Godwit'
 and o.obsdt = '2024-05-25 16:00:00';
 
+--Query the database to obtain results for visualisations:
+
 --Which 10 locations did birdwatchers visit the most?
 select l.locname, l.lat, l.lng, count(distinct o.obsdt) as "Total Days of Observations", l.subnational2code
 from Observations o
@@ -39,7 +42,7 @@ Inner Join Locations l on
 o.locid = l.locid
 group by l.locname, l.lat, l.lng, l.subnational2code
 order by "Total Days of Observations" DESC
-Limit 20) to '/Users/yashadakulkarni/Desktop/WORK/DataAnalyticsBootcamp/HOMEWORK/eBird-Data-Visualisation/SQL_Output/results_observation_days.csv' with csv header
+Limit 20) to '/Users/yashadakulkarni/Desktop/WORK/DataAnalyticsBootcamp/HOMEWORK/eBird-Data-Visualisation/3.SQL/SQL_Output/results_observation_days.csv' with csv header
 
 
 --Which 10 locations had max species diversity? 
@@ -58,4 +61,4 @@ Inner Join Locations l on
 o.locid = l.locid
 group by l.locname, l.lat, l.lng, l.subnational2code
 order by "Total Number of Species Observed" DESC
-Limit 20) to '/Users/yashadakulkarni/Desktop/WORK/DataAnalyticsBootcamp/HOMEWORK/eBird-Data-Visualisation/SQL_Output/results_species_diversity.csv' with csv header
+Limit 20) to '/Users/yashadakulkarni/Desktop/WORK/DataAnalyticsBootcamp/HOMEWORK/eBird-Data-Visualisation/3.SQL/SQL_Output/results_species_diversity.csv' with csv header

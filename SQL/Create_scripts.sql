@@ -26,6 +26,7 @@ Create table Locations (
 );
 
 --1. Create Table Observations_temp
+--this temperary table is used later to add date and time
 create table Observations_temp (
 	id serial primary key not null,
 	locid varchar,
@@ -72,11 +73,13 @@ create table Observations (
 	foreign key(speciesCode) references Species(speciesCode)
 );
 
+--Have a look at the created tables with imported data
 select * from Locations;
 select * from Species;
 select * from Observations_temp;
 select * from Observations;
 
+--Use the to_timestamp command to convert the data and time text data type to timestamp one and insert into the Observations table:
 INSERT INTO Observations (id, locid, speciesCode, obsDt, howMany, obsValid, obsReviewed, userDisplayName, obsId, checkListId, presenceNoted, hasComments, firstName, lastName, hasRichMedia, evidence, exoticCategory)
 SELECT id, locid, speciesCode, to_timestamp(obsDt, 'DD/MM/YYYY HH24:MI'), howMany, obsValid, obsReviewed, userDisplayName, obsId, checkListId, presenceNoted, hasComments, firstName, lastName, hasRichMedia, evidence, exoticCategory
 FROM Observations_temp;
