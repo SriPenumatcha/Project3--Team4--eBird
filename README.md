@@ -2,7 +2,7 @@
 
 This is Team 4's repository for Monash University Data Analytics Bootcamp Project 3
 
-Team contributors: Lindsay McCulloch, Ned Zaatari, Sri Penumatcha, Vrinda Patel, Yashada Kulkarni
+Team contributors: Lindsay McCulloch, Sri Penumatcha, Vrinda Patel, Yashada Kulkarni
 
 Deployment Link to GitHub pages: - https://sripenumatcha.github.io/eBird-Data-Visualisation/eBird_dashboard/eBird.html
 
@@ -31,7 +31,7 @@ Deployment Link to GitHub pages: - https://sripenumatcha.github.io/eBird-Data-Vi
 
 * `Proposal_project3_team4.docx` file containing the proposal for this project
 * `Analysis.ipynb` notebook file containing Python visualisations
-
+* `project3_team4.pptx` file containing our powerpoint presentation
 
 ## Background
 
@@ -42,21 +42,22 @@ The Cornell Lab of Ornithology offer a flat file with over 30GB of data for down
 
 In the absence of historical data, we have decided to answer the following key questions:
 
-1. State-wise, which locations had maximum bird observations? 
+1. How many species were observed, and how many individual observations were made; for Australia and for each state
 
-2. State-wise what are the “notable” observations of birds? 
+2. Which species were observed and where? 
 
-3. State-wise, what were the 10 most commonly observed birds and their count?
+3. Which birding spots had max species diversity? 
 
-4. What are the total number of observations in Australia?
+4. Which were the 10 most commonly observed species, Australia-wide and state-wise?
 
-5. What are the top 10 bird observations by location?
+5. Which species were least common? 
 
-6. What are the top 10 bird species observed in Australia in the past 30 days?
+6. Which birding spots had max observations, Australia-wide and state-wise
 
-7. What are the total number of birds observed per state?
+7. State-wise what are the “notable” observations of birds?
 
 8. Who were the top 10 observers per number of observations in each state?
+
 
 The eBird Context Dashboard we have created provides an interactive platform for exploring bird observation data, allowing users to visualize and analyze bird species, observer activities, and observation locations across different regions.
 As this is a continuously updating dataset, we have converted the data into static CSV and JSON files using the below libraries to execute our visualisations;
@@ -72,9 +73,6 @@ As this is a continuously updating dataset, we have converted the data into stat
 * **Matplotlib** For creating PieCharts
 * **Bokeh** For creating Map
 * **Holoviews** For creating Map
-*...
-*...
-*...
 
 **Key Features of our dashboard include:**
 
