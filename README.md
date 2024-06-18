@@ -31,7 +31,7 @@ Deployment Link to GitHub pages: - https://sripenumatcha.github.io/eBird-Data-Vi
 
 * `Proposal_project3_team4.docx` file containing the proposal for this project
 * `Analysis.ipynb` notebook file containing Python visualisations
-* ....
+
 
 ## Background
 
